@@ -21,8 +21,6 @@ export default class UserController {
     user.email = request.input('email')
     user.password = request.input('password')
 
-    if (!!user.name) {}
-
     return await user.save();
   }
 }
