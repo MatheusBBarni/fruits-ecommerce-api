@@ -4,6 +4,8 @@
 - NodeJS
 - Typescript
 - AdonisJS 5
+  - Lucid ORM
+  - Knex
 - MySql
 
 
