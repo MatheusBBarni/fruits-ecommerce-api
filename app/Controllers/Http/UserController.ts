@@ -1,4 +1,4 @@
-import { schema } from '@ioc:Adonis/Core/Validator'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
 
@@ -7,8 +7,12 @@ export default class UserController {
 
     const postsSchema = schema.create({
       name: schema.string(),
-      email: schema.string(),
-      password: schema.string(),
+      email: schema.string({}, [
+        rules.email()
+      ]),
+      password: schema.string({}, [
+        rules.minLength(6)
+      ]),
     })
 
     await request.validate({
